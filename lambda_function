@@ -1,5 +1,6 @@
 import boto3
 
+# Input your own information into lines below.
 access_key = "<<ACCESS KEY>>"
 access_secret = "<<SECRET KEY>>"
 region ="<<REGION>>"
@@ -39,6 +40,8 @@ def lambda_handler(event, context):
     client = boto3.client('sqs', aws_access_key_id = access_key, aws_secret_access_key = access_secret, region_name = region)
     intent_name = event['request']['intent']['name']
     
+    # Use whatever intent name defined in Alexa skill.
+    # Message in single quotes is passed on to SQS.
     if intent_name == "sourceDP":
         post_message(client, 'DP', queue_url)
         message = "DP"
