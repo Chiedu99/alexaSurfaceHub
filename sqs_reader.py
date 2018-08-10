@@ -3,6 +3,7 @@ import os
 import time
 import serial
 
+# Input your own information into lines below.
 access_key = "<<ACCESS KEY>>"
 access_secret = "<<SECRET KEY>>"
 region ="<<REGION>>"
@@ -23,11 +24,13 @@ waittime = 20
 client.set_queue_attributes(QueueUrl = queue_url, Attributes = {'ReceiveMessageWaitTimeSeconds': str(waittime)})
 
 time_start = time.time()
+# any time can be set before program stops checking.
 while (time.time() - time_start < 60000000000000):
         print("Checking...")
         try:
                 message = pop_message(client, queue_url)
                 print(message)
+                # code from serial_communication.py implementation.
                 if message == "DP":
     
                         ser = serial.Serial(
@@ -43,17 +46,16 @@ while (time.time() - time_start < 60000000000000):
                         print 'Enter your commands below.\r\nInsert "exit" to leave the application.'
                             # get keyboard input
                         input = "source=1"
-                                # Python 3 users
-                                # input = input(">> ")
+                                
                         if input == 'exit':
                             ser.close()
                             exit()
                         else:
                                 # send the character to the device
-                                # (note that I happend a \r\n carriage return and line feed to the characters - this is requested by my device)
+                                
                             ser.write(input + '\r\n')
                             out = ''
-                                # let's wait one second before reading output (let's give device time to answer)
+                                # wait one second before reading output 
                             time.sleep(1)
                             while ser.inWaiting() > 0:
                                 out += ser.read(1)
@@ -76,17 +78,16 @@ while (time.time() - time_start < 60000000000000):
                         print 'Enter your commands below.\r\nInsert "exit" to leave the application.'
                             # get keyboard input
                         input = "source=2"
-                                # Python 3 users
-                                # input = input(">> ")
+                                
                         if input == 'exit':
                             ser.close()
                             exit()
                         else:
                                 # send the character to the device
-                                # (note that I happend a \r\n carriage return and line feed to the characters - this is requested by my device)
+                               
                             ser.write(input + '\r\n')
                             out = ''
-                                # let's wait one second before reading output (let's give device time to answer)
+                                # wait one second before reading output
                             time.sleep(1)
                             while ser.inWaiting() > 0:
                                 out += ser.read(1)
@@ -108,17 +109,16 @@ while (time.time() - time_start < 60000000000000):
                         print 'Enter your commands below.\r\nInsert "exit" to leave the application.'
                             # get keyboard input
                         input = "source=3"
-                                # Python 3 users
-                                # input = input(">> ")
+                                
                         if input == 'exit':
                             ser.close()
                             exit()
                         else:
                                 # send the character to the device
-                                # (note that I happend a \r\n carriage return and line feed to the characters - this is requested by my device)
+                                
                             ser.write(input + '\r\n')
                             out = ''
-                                # let's wait one second before reading output (let's give device time to answer)
+                                # wait one second before reading output
                             time.sleep(1)
                             while ser.inWaiting() > 0:
                                 out += ser.read(1)
@@ -140,17 +140,16 @@ while (time.time() - time_start < 60000000000000):
                         print 'Enter your commands below.\r\nInsert "exit" to leave the application.'
                             # get keyboard input
                         input = "source=0"
-                                # Python 3 users
-                                # input = input(">> ")
+                                
                         if input == 'exit':
                             ser.close()
                             exit()
                         else:
                                 # send the character to the device
-                                # (note that I happend a \r\n carriage return and line feed to the characters - this is requested by my device)
+                               
                             ser.write(input + '\r\n')
                             out = ''
-                                # let's wait one second before reading output (let's give device time to answer)
+                                # wait one second before reading output
                             time.sleep(1)
                             while ser.inWaiting() > 0:
                                 out += ser.read(1)
@@ -172,17 +171,16 @@ while (time.time() - time_start < 60000000000000):
                         print 'Enter your commands below.\r\nInsert "exit" to leave the application.'
                             # get keyboard input
                         input = "poweron"
-                                # Python 3 users
-                                # input = input(">> ")
+                                
                         if input == 'exit':
                             ser.close()
                             exit()
                         else:
                                 # send the character to the device
-                                # (note that I happend a \r\n carriage return and line feed to the characters - this is requested by my device)
+                                
                             ser.write(input + '\r\n')
                             out = ''
-                                # let's wait one second before reading output (let's give device time to answer)
+                                # wait one second before reading output
                             time.sleep(1)
                             while ser.inWaiting() > 0:
                                 out += ser.read(1)
@@ -204,17 +202,16 @@ while (time.time() - time_start < 60000000000000):
                         print 'Enter your commands below.\r\nInsert "exit" to leave the application.'
                             # get keyboard input
                         input = "poweroff"
-                                # Python 3 users
-                                # input = input(">> ")
+                              
                         if input == 'exit':
                             ser.close()
                             exit()
                         else:
                                 # send the character to the device
-                                # (note that I happend a \r\n carriage return and line feed to the characters - this is requested by my device)
+                               
                             ser.write(input + '\r\n')
                             out = ''
-                                # let's wait one second before reading output (let's give device time to answer)
+                                # wait one second before reading output
                             time.sleep(1)
                             while ser.inWaiting() > 0:
                                 out += ser.read(1)
@@ -236,17 +233,16 @@ while (time.time() - time_start < 60000000000000):
                         print 'Enter your commands below.\r\nInsert "exit" to leave the application.'
                             # get keyboard input
                         input = "brightness+"
-                                # Python 3 users
-                                # input = input(">> ")
+                                
                         if input == 'exit':
                             ser.close()
                             exit()
                         else:
                                 # send the character to the device
-                                # (note that I happend a \r\n carriage return and line feed to the characters - this is requested by my device)
+                                
                             ser.write(input + '\r\n')
                             out = ''
-                                # let's wait one second before reading output (let's give device time to answer)
+                                # wait one second before reading output
                             time.sleep(1)
                             while ser.inWaiting() > 0:
                                 out += ser.read(1)
@@ -268,17 +264,16 @@ while (time.time() - time_start < 60000000000000):
                         print 'Enter your commands below.\r\nInsert "exit" to leave the application.'
                             # get keyboard input
                         input = "brightness-"
-                                # Python 3 users
-                                # input = input(">> ")
+                                
                         if input == 'exit':
                             ser.close()
                             exit()
                         else:
                                 # send the character to the device
-                                # (note that I happend a \r\n carriage return and line feed to the characters - this is requested by my device)
+                               
                             ser.write(input + '\r\n')
                             out = ''
-                                # let's wait one second before reading output (let's give device time to answer)
+                                # wait one second before reading output
                             time.sleep(1)
                             while ser.inWaiting() > 0:
                                 out += ser.read(1)
