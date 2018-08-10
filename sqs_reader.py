@@ -31,6 +31,7 @@ while (time.time() - time_start < 60000000000000):
                 message = pop_message(client, queue_url)
                 print(message)
                 # code from serial_communication.py implementation.
+                # if statement based on what message is pulled from SQS.
                 if message == "DP":
     
                         ser = serial.Serial(
